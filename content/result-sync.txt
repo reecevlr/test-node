@@ -1,0 +1,6 @@
+This is the result of this function: First text file!
+Second text file!This is the result of this function:
+First text file!
+Second text file!This is the result of this function:
+First text file!
+Second text file!
