@@ -1,8 +1,45 @@
-// Testing installed lodash module
+const { readFile, writeFile } = require('fs').promises
+// const util = require('util')
+// const readFilePromise = util.promisify(readFile)
+// const writeFilePromise = util.promisify(writeFile)
 
-const _ = require('lodash')
 
-const items = [1, [2, [3, [4]]]]
-const newItems = _.flattenDeep(items)
+const start = async() => {
+    try {
+        const first = await readFile('./content/first.txt', 'utf8')
+        const second = await readFile('./content/second.txt', 'utf8')
+        // const first = await readFilePromise('./content/first.txt', 'utf8')
+        // const second = await readFilePromise('./content/second.txt', 'utf8')
+        
+        await writeFile(
+            './content/result-mind-grenade.txt',
+            `OOOWEEE ${first} ${second}`
+        )
 
-console.log(newItems)
+        console.log(first)
+        console.log(second)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+start()
+
+
+// const getText = (path) => {
+//     return new Promise((resolve, reject) => {
+//         readFile(path, 'utf8', (err, data) => {
+//             if (err) {
+//                 reject(err)
+//             }
+//             else {
+//                 resolve(data)
+//             }
+//         })
+//     })
+// }
+
+
+// getText('./content/first.txt')
+//     .then((result) => console.log(result))
+//     .catch((error) => console.log(error))
